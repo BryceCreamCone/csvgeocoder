@@ -15,16 +15,16 @@ def success():
     if request.method=='POST':
         if '.csv' in request.files["file"].filename:
             csvfile=request.files["file"]
+            filename=secure_filename(csvfile.filename)
+            nom=Nominatim(scheme='https')
             try:
                 table=pandas.read_csv(csvfile, sep=',')
             except:
                 return render_template("index.html", message="That file cannot be read as a CSV file")
-            filename=secure_filename(csvfile.filename)
-            nom=Nominatim(scheme='https')
             if table.columns.str.contains("Address" or "address").any()==True:
                 table["Latitude"]=table["Address"or"address"].apply(nom.geocode).apply(lambda x: x.latitude if x != None else None)
                 table["Longitude"]=table["Address"or"address"].apply(nom.geocode).apply(lambda x: x.longitude if x != None else None)
-                table.to_csv("uploads/new"+filename, sep=',', index=False, encoding='utf-8')
+                table.to_csv("new"+filename, sep=',', index=False, encoding='utf-8')
                 data=table.to_html(classes="table", index=False, index_names=False, justify='center', na_rep='--')
                 return render_template("success.html", data=data, btn="download.html")
             else:
@@ -34,7 +34,7 @@ def success():
 
 @app.route("/download/")
 def download():
-    return send_file("uploads/new"+filename, attachment_filename="new"+filename, as_attachment=True)
+    return send_file("new"+filename, attachment_filename="new"+filename, as_attachment=True)
 
 if __name__=='__main__':
     app.debug=True
