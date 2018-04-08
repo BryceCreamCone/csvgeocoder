@@ -14,7 +14,7 @@
         {{message | safe}}
       </div>
       <form action="{{url_for('success')}}" method="POST" enctype="multipart/form-data">
-        <input  type="file" name="file" required>
+        <input  type="file" accept=".csv" name="file" required>
         <button type="submit">Submit</button>
       </form>
       {%block content%}
