@@ -28,7 +28,7 @@ def success():
                 else:
                     return render_template("index.html", message="There doesn't seem to be an Address (or address) column in your file")
             except:
-                render_template("index.html", message="That file cannot be read as a CSV file, sorry")
+                return render_template("index.html", message="That file cannot be read as a CSV file")
         else:
             return render_template("index.html", message="That doesn't appear to be a CSV file. Please select a CSV file")
 
