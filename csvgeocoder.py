@@ -11,10 +11,10 @@ def index():
 
 @app.route("/success/", methods=["POST"])
 def success():
-    global filename
     if request.method=='POST':
         if '.csv' in request.files["file"].filename:
             csvfile=request.files["file"]
+            global filename
             filename=secure_filename(csvfile.filename)
             nom=Nominatim(scheme='https')
             try:
