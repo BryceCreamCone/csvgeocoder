@@ -1,0 +1,52 @@
+html, body {
+  margin: 0 auto;
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background-color: 	#000000;
+  color: #FFFAF0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.container button {
+  width: auto;
+  height: 30px;
+  background-color: #228B22;
+  color: #FFFAF0;
+  margin: 50px;
+}
+
+.container form {
+  margin: 30px;
+}
+
+.container h1 {
+  color: #FFF8DC;
+  text-shadow: -1px 0 #228B22,0 1px #228B22,1px 0 #228B22,0 -1px #228B22;
+  margin-top: 80px;
+}
+
+.container h3 {
+  font-weight: lighter;
+}
+
+.message {
+  color: #8B0000;
+}
+
+.table {
+  margin: auto;
+}
+
+.table th, td {
+  column-fill: balance;
+  color: #FFFAF0;
+  outline-width: medium;
+  padding: 7px;
+  text-align: center;
+}
