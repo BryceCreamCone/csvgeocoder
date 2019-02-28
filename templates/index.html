@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>CSV GeoCoder</title>
+    <link href="..\static\main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>CSV GeoCoder</h1>
+      <h3>Please select a CSV (.csv) file to upload with a column named "Address"<br><br>
+      We will return the file with <b>Latitude</b> and <b>Longitude</b> columns added!</h3>
+      <h5>("address" also works just fine)</h5>
+      <div class="message">
+        {{message | safe}}
+      </div>
+      <form action="{{url_for('success')}}" method="POST" enctype="multipart/form-data">
+        <input  type="file" accept=".csv" name="file" required>
+        <button type="submit">Submit</button>
+      </form>
+      {%block content%}
+      {%endblock%}
+    </div>
+  </body>
+</html>
