@@ -11,10 +11,10 @@ def index():
 
 @app.route("/success/", methods=["POST"])
 def success():
+    global filename
     if request.method=='POST':
         if '.csv' in request.files["file"].filename:
             csvfile=request.files["file"]
-            #global filename - not working on heroku, says not defined in download
             filename=secure_filename(csvfile.filename)
             nom=Nominatim(scheme='https')
             try:
@@ -34,8 +34,6 @@ def success():
 
 @app.route("/download/")
 def download():
-    csvfile=request.files["file"]
-    filename=secure_filename(csvfile.filename)
     return send_file("new"+filename, attachment_filename="new"+filename, as_attachment=True)
 
 if __name__=='__main__':
