@@ -36,6 +36,10 @@ def success():
 def download():
     return send_file("new"+filename, attachment_filename="new"+filename, as_attachment=True)
 
+@app.route("/testfile")
+def testfile():
+    return send_file("./supermarkets.csv", attachment_filename="supermarkets.csv", as_attachment=True)
+
 if __name__=='__main__':
     app.debug=True
     app.run()
