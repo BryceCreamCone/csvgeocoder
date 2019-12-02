@@ -1,5 +1,6 @@
 steps.txt
 testfile.csv
-supermarkets.csv
 newsupermarkets.csv
 virtual/
+__pycache__/
+.vscode/
