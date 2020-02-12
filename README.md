@@ -7,3 +7,7 @@ You can directly download it too after it makes the new form.
 
 No csv file to test? No worries! 
 I have created a 'download test file' button that downloads a test file for you to test with!
+
+![Alt text](/screenshots/before.png?raw=true "Before")
+
+![Alt text](/screenshots/after.png?raw=true "After")
